@@ -1,1 +1,1 @@
-# vite-test-sass-boilerplate
+# vite-jest-sass-boilerplate
