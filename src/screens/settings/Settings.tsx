@@ -11,6 +11,7 @@ import {
 import EmojiFlagsIcon from "@mui/icons-material/EmojiFlags";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import { Link } from "react-router-dom";
 
 const Settings = () => {
   const [flagQuestion, setFlagQuestion] = useState(false);
@@ -141,6 +142,10 @@ const Settings = () => {
           </List>
         </Col>
       </Row>
+
+      <Link className="btn btn-primary mt-4" to="/game">
+        Start game
+      </Link>
     </div>
   );
 };
