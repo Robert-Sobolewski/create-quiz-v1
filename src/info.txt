@@ -1,0 +1,26 @@
+name.common = country
+capital:[] = capital is []
+region: "" = asia, kontynent
+subregion: "" = western asia, czesc kontynentu
+flags:{svg} = flag = flaga {svg,png}
+-----
+borders:[
+"ISR",
+"EGY",
+"JOR"
+]
+-----
+cca3: "PSE" - shortcut - skrot 
+
+
+
+
+
+const [qSettings, setQSettings] = useState(
+{
+country:false,
+capital:false,
+region:false,
+subregion:false,
+flag:true,
+})

@@ -1,12 +1,15 @@
 {
   "name": "test-demo1",
   "version": "0.0.0",
+  "homepage": "https://robert-sobolewski.github.io/create-quiz-v1/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "jest",
-    "test-coverage": "jest --coverage"
+    "test-coverage": "jest --coverage",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",

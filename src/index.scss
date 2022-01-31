@@ -6,8 +6,10 @@ body {
     font-family: 'Indie Flower', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
-  overflow: hidden;
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  overflow-y: auto;
   background: rgb(112,196,223);
   background: linear-gradient(-45deg, rgba(112,196,223,1) 0%, rgba(153,153,250,1) 26%, rgba(74,227,155,1) 75%, rgba(0,212,255,1) 100%);}
 :root{

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CardComp from "../../components/card/CardComp";
-import { selectDB } from "../../redux/gameSlice";
+import { selectDataValue } from "../../redux/dataSlice";
+
 import "./Home.scss";
 const Home = () => {
-  const [val, setVal] = useState([]);
-  const data = useSelector(selectDB);
+  const [val, setVal] = useState<number[]>([]);
+  const data: [] = useSelector(selectDataValue);
   const rand = (): number => Math.floor(Math.random() * 50);
   useEffect(() => {
     setVal([rand(), rand(), rand()]);
@@ -28,9 +29,18 @@ const Home = () => {
         Let's have fun!
       </Link>
       <div className="flags-container">
-        <CardComp name={data[val[0]]?.name} flag={data[val[0]]?.flags.svg} />
-        <CardComp name={data[val[1]]?.name} flag={data[val[1]]?.flags.svg} />
-        <CardComp name={data[val[2]]?.name} flag={data[val[2]]?.flags.svg} />
+        <CardComp
+          name={data[val[0]]?.name?.common}
+          flag={data[val[0]]?.flags.svg}
+        />
+        <CardComp
+          name={data[val[1]]?.name?.common}
+          flag={data[val[1]]?.flags.svg}
+        />
+        <CardComp
+          name={data[val[2]]?.name?.common}
+          flag={data[val[2]]?.flags.svg}
+        />
       </div>
     </div>
   );

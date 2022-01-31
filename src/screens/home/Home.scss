@@ -12,6 +12,10 @@
 
       .card-comp{
           transform-origin: 50% 50%;
+          box-shadow: 2px 3px 30px black;
+          border: solid 2px black;
+          overflow: hidden;
+          display:flex;
 
             &:nth-of-type(1){
                     transform: rotate(-15deg) translateY(5px);
