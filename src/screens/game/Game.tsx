@@ -17,10 +17,12 @@ const Game = () => {
   const status = useSelector(selectState);
   const data = useSelector(selectDataValue);
   const [ge, setGe] = useState<any>(null);
+  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
 
   useEffect(() => {
-    let game = new GameEngine(data && data, questions && questions);
+    let game = new GameEngine(data!, questions!); //(data && data, questions && questions);
     setGe(game);
+    console.log("game", game);
   }, []);
 
   return (
@@ -30,9 +32,37 @@ const Game = () => {
         Questions from <strong>{GameCategory[qform].toString()}</strong>, to{" "}
         <strong>{GameCategory[aform].toString()}</strong>
       </p>
-      <h3 style={{ color: "red" }}>{ge?.demo()}</h3>
+      <hr />
+      <h5>
+        Question {1 + currentQuestion} from {questions}
+      </h5>
+      <img
+        src={ge?.rndData[currentQuestion]?.flags?.svg}
+        alt={ge?.rndData[currentQuestion]?.name?.common}
+        width="300"
+        height="230"
+      />
+      <h5 className={"mt-2 mb-2"}>Pick your answer:</h5>
+      <button
+        onClick={() => setCurrentQuestion(1 + currentQuestion)}
+        disabled={currentQuestion == -1 + questions ? true : false}
+        className="btn btn-primary"
+      >
+        Next Question
+      </button>
+      <button
+        onClick={() => setCurrentQuestion(-1 + currentQuestion)}
+        disabled={currentQuestion === 0 ? true : false}
+        className="btn btn-primary"
+      >
+        Previous Question
+      </button>
+      <br /> <br />
+      <hr />
+      <h6 style={{ color: "red" }}>
+        {JSON.stringify(ge?.rndData[0]?.name?.common)}
+      </h6>
       <p>{JSON.stringify(ge?.getRandomQuestions())}</p>
-
       {/* <p>{JSON.stringify(data)}</p> */}
     </div>
   );
